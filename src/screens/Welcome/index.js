@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import * as Animatable from "react-native-animatable";
+import {} from "@expo-google-fonts/poppins";
+
 export function Welcome() {
   return (
     <View style={styles.container}>
@@ -38,6 +40,7 @@ const styles = StyleSheet.create({
     bottom: 40,
     fontSize: 30,
     fontWeight: "bold",
+    fontFamily: "Poppins_500Medium",
   },
   containerForm: {
     flex: 1,
