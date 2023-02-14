@@ -38,7 +38,7 @@ export function SignIn() {
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
         <Text style={styles.title}>Email</Text>
         <TextInput placeholder="Digite o email..." style={styles.input} />
-        <Text style={styles.titlePass}>Senha</Text>
+        <Text style={styles.title}>Senha</Text>
         <TextInput placeholder="Digite sua senha..." style={styles.input} />
 
         <TouchableOpacity style={styles.button}>
@@ -57,13 +57,28 @@ export function SignIn() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#014ba0" },
   containerHeader: { marginTop: "14%", marginBottom: "8%", paddingStart: "5%" },
-  containerForm: {},
-  message: { color: "#fff", fontSize: 28, fontFamily: "" },
-  title: { color: "#fff" },
-  titlePass: { color: "#fff" },
-  input: {},
-  button: {},
-  buttonText: { color: "#fff" },
-  buttonRegister: {},
-  textRegister: { color: "#fff" },
+  containerForm: {
+    backgroundColor: "#fff",
+    flex: 1,
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
+    paddingStart: "5%",
+    paddingEnd: "5%",
+  },
+  message: { fontSize: 28, fontFamily: "Poppins_500Medium", color: "#ffffff" },
+  title: { fontFamily: "Poppins_400Regular", fontSize: 20, marginTop: 25 },
+  titlePass: { fontFamily: "Poppins_400Regular" },
+  input: { borderBottomWidth: 1, height: 40, marginBottom: 12, fontSize: 16 },
+  button: {
+    backgroundColor: "#014ba0",
+    width: "100%",
+    borderRadius: 4,
+    paddingVertical: 8,
+    marginTop: 14,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonText: { fontFamily: "Poppins_400Regular", color: "#fff" },
+  buttonRegister: { marginTop: 14, alignSelf: "center" },
+  textRegister: { fontFamily: "Poppins_500Medium" },
 });
