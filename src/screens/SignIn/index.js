@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import * as Animatable from "react-native-animatable";
+import { ButtonLogin } from "../../components/ButtonLogin";
 import {
   useFonts,
   Poppins_400Regular,
@@ -49,6 +50,7 @@ export function SignIn() {
             Não possui uma conta? Cadastre-se
           </Text>
         </TouchableOpacity>
+        <ButtonLogin />
       </Animatable.View>
     </View>
   );
