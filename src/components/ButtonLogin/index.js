@@ -7,12 +7,26 @@ export function ButtonLogin() {
       <View style={styles.imageContainer}>
         <Image />
       </View>
-      <Text></Text>
+      <Text>Entrar com Google</Text>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {},
-  imageContainer: {},
+  container: {
+    height: 56,
+    backgroundColor: "#f5f5dc",
+    borderRadius: 5,
+    alignItems: "center",
+    flexDirection: "row",
+    marginBottom: 16,
+  },
+  imageContainer: {
+    height: 100,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 16,
+
+    borderRightWidth: 1,
+  },
 });
