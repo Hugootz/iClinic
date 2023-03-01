@@ -1,32 +1,72 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
-
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  SafeAreaView,
+} from "react-native";
 export function ButtonLogin() {
   return (
-    <TouchableOpacity style={styles.container}>
-      <View style={styles.imageContainer}>
-        <Image />
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <TouchableOpacity activeOpacity={0.5} style={styles.buttonStyle}>
+          <Image
+            style={styles.imageStyle}
+            source={require("../../assets/google-37.png")}
+          />
+          <View style={styles.separatorText} />
+          <Text style={styles.textStyle}>Entrar com Google</Text>
+        </TouchableOpacity>
       </View>
-      <Text>Entrar com Google</Text>
-    </TouchableOpacity>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    margin: 20,
+    marginTop: 5,
+    padding: 30,
+  },
+
+  buttonStyle: {
     height: 56,
-    backgroundColor: "#f5f5dc",
-    borderRadius: 5,
+    backgroundColor: "#fff",
+    borderRadius: 10,
     alignItems: "center",
     flexDirection: "row",
     marginBottom: 16,
+    borderWidth: 3,
+    borderColor: "#808080",
+
+    padding: 10,
   },
-  imageContainer: {
-    height: 100,
+  imageStyle: {
+    height: 25,
+    width: 25,
     justifyContent: "center",
     alignItems: "center",
     padding: 16,
-
     borderRightWidth: 1,
+    padding: 10,
+    margin: 15,
+
+    resizeMode: "stretch",
+  },
+  separatorText: {
+    backgroundColor: "#808080",
+    width: 1,
+    height: 40,
+  },
+  textStyle: {
+    flexDirection: "row",
+    marginBottom: 4,
+    marginLeft: 10,
+    alignSelf: "center",
+    paddingHorizontal: 15,
+    color: "#808080",
   },
 });
