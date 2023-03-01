@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from "react-native";
-export function ButtonLogin() {
+export function ButtonLogin({ title }) {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
@@ -17,7 +17,7 @@ export function ButtonLogin() {
             source={require("../../assets/google-37.png")}
           />
           <View style={styles.separatorText} />
-          <Text style={styles.textStyle}>Entrar com Google</Text>
+          <Text style={styles.textStyle}>{title}</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
