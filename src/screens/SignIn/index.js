@@ -34,6 +34,8 @@ export function SignIn() {
         delay={500}
         style={styles.containerHeader}
       >
+        <Text style={styles.textStyle}>iClinic</Text>
+
         <Text style={styles.message}>Bem vindo(a)</Text>
       </Animatable.View>
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
@@ -50,7 +52,10 @@ export function SignIn() {
             Não possui uma conta? Cadastre-se
           </Text>
         </TouchableOpacity>
-        <ButtonLogin />
+        <View style={styles.loginStyle}>
+          <ButtonLogin />
+          <ButtonLogin />
+        </View>
       </Animatable.View>
     </View>
   );
@@ -66,6 +71,12 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 25,
     paddingStart: "5%",
     paddingEnd: "5%",
+  },
+
+  textStyle: {
+    color: "#fff",
+    fontFamily: "Poppins_500Medium",
+    fontSize: 20,
   },
   message: { fontSize: 28, fontFamily: "Poppins_500Medium", color: "#ffffff" },
   title: { fontFamily: "Poppins_400Regular", fontSize: 20, marginTop: 25 },
@@ -83,4 +94,5 @@ const styles = StyleSheet.create({
   buttonText: { fontFamily: "Poppins_400Regular", color: "#fff" },
   buttonRegister: { marginTop: 14, alignSelf: "center" },
   textRegister: { fontFamily: "Poppins_500Medium" },
+  loginStyle: { width: "100%", height: "25%" },
 });
