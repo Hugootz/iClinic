@@ -44,7 +44,7 @@ export function Welcome() {
           onPress={() => navigation.navigate("SignIn")}
           style={styles.button}
         >
-          <Text style={styles.buttonText}>Acessar</Text>
+          <Text style={styles.buttonText}> Acessar </Text>
         </TouchableOpacity>
       </Animatable.View>
     </View>
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   button: {
     position: "absolute",
     backgroundColor: "#014ba0",
-    borderRadius: 50,
+    borderRadius: 30,
     padding: 25,
     alignSelf: "center",
     bottom: "10%",
