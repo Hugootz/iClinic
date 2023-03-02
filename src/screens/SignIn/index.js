@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { ButtonLogin } from "../../components/ButtonLogin";
+
 import {
   useFonts,
   Poppins_400Regular,
@@ -53,8 +54,14 @@ export function SignIn() {
           </Text>
         </TouchableOpacity>
         <View style={styles.loginStyle}>
-          <ButtonLogin />
-          <ButtonLogin />
+          <ButtonLogin
+            title={"Entrar com Google"}
+            image={require("../../assets/google-37.png")}
+          />
+          <ButtonLogin
+            title={"Entrar com Apple"}
+            image={require("../../assets/Apple-logo.png")}
+          />
         </View>
       </Animatable.View>
     </View>
