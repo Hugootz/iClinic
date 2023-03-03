@@ -61,6 +61,7 @@ export function SignIn() {
           <ButtonLogin
             title={"Entrar com Apple"}
             image={require("../../assets/Apple-logo.png")}
+            style={styles.imageButton}
           />
         </View>
       </Animatable.View>
@@ -102,4 +103,14 @@ const styles = StyleSheet.create({
   buttonRegister: { marginTop: 14, alignSelf: "center" },
   textRegister: { fontFamily: "Poppins_500Medium" },
   loginStyle: { width: "100%", height: "25%" },
+  imageButton: {
+    height: 25,
+    width: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 16,
+
+    margin: 12,
+    resizeMode: "stretch",
+  },
 });
