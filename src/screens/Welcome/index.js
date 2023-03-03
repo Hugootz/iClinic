@@ -82,12 +82,13 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins_400Regular",
   },
   button: {
-    position: "absolute",
     backgroundColor: "#014ba0",
-    borderRadius: 30,
-    padding: 25,
-    alignSelf: "center",
-    bottom: "10%",
+    width: "100%",
+    borderRadius: 10,
+    paddingVertical: 10,
+    marginTop: 14,
+    justifyContent: "center",
+    alignItems: "center",
   },
   buttonText: {
     color: "#ffffff",
