@@ -1,11 +1,11 @@
 import React from "react";
-import { View } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 export function BackButton() {
   return (
-    <View>
+    <TouchableOpacity>
       <AntDesign name="back" size={24} color={"#fff"} />
-    </View>
+    </TouchableOpacity>
   );
 }
