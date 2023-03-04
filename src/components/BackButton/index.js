@@ -5,7 +5,7 @@ import { AntDesign } from "@expo/vector-icons";
 export function BackButton() {
   return (
     <TouchableOpacity>
-      <AntDesign name="back" size={24} color={"#fff"} />
+      <AntDesign name="left" size={24} color={"#fff"} />
     </TouchableOpacity>
   );
 }
