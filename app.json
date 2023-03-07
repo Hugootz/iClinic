@@ -2,9 +2,8 @@
   "expo": {
     "name": "iClinic",
     "slug": "iClinic",
+    "scheme": "iClinic",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"]
   }
 }
