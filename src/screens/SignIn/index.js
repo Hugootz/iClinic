@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import {
   View,
@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { ButtonLogin } from "../../components/ButtonLogin";
+import { BackButton } from "../../components/BackButton";
 
 import {
   useFonts,
@@ -17,6 +18,18 @@ import {
   Poppins_300Light,
 } from "@expo-google-fonts/poppins";
 export function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleSignIn() {
+    if (email === "" || password === "") {
+      alert("Preencha os campos obrigatórios");
+      return;
+    }
+    const data = { email, password };
+    console.log(data);
+  }
+
   SplashScreen.preventAutoHideAsync();
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
@@ -35,17 +48,32 @@ export function SignIn() {
         delay={500}
         style={styles.containerHeader}
       >
+        <View style={styles.backStyle}>
+          <BackButton activeOpacity={1.0} />
+        </View>
+
         <Text style={styles.textStyle}>iClinic</Text>
 
         <Text style={styles.message}>Bem vindo(a)</Text>
       </Animatable.View>
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
         <Text style={styles.title}>Email</Text>
-        <TextInput placeholder="Digite o email..." style={styles.input} />
-        <Text style={styles.title}>Senha</Text>
-        <TextInput placeholder="Digite sua senha..." style={styles.input} />
+        <TextInput
+          onChangeText={setEmail}
+          value={email}
+          placeholder="Digite o email..."
+          style={styles.input}
+        />
 
-        <TouchableOpacity style={styles.button}>
+        <Text style={styles.title}>Senha</Text>
+        <TextInput
+          onChangeText={setPassword}
+          value={password}
+          placeholder="Digite sua senha..."
+          style={styles.input}
+          secureTextEntry={true}
+        />
+        <TouchableOpacity onPress={handleSignIn} style={styles.button}>
           <Text style={styles.buttonText}>Acessar</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttonRegister}>
@@ -72,6 +100,8 @@ export function SignIn() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#014ba0" },
   containerHeader: { marginTop: "14%", marginBottom: "8%", paddingStart: "5%" },
+  backStyle: { top: -30 },
+
   containerForm: {
     backgroundColor: "#fff",
     flex: 1,
@@ -88,6 +118,7 @@ const styles = StyleSheet.create({
   },
   message: { fontSize: 28, fontFamily: "Poppins_500Medium", color: "#ffffff" },
   title: { fontFamily: "Poppins_400Regular", fontSize: 20, marginTop: 25 },
+
   titlePass: { fontFamily: "Poppins_400Regular" },
   input: { borderBottomWidth: 1, height: 40, marginBottom: 12, fontSize: 16 },
   button: {
