@@ -10,6 +10,9 @@ import {
 import * as Animatable from "react-native-animatable";
 import { ButtonLogin } from "../../components/ButtonLogin";
 import { BackButton } from "../../components/BackButton";
+import { useForm, Controller } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import {
   useFonts,
@@ -17,16 +20,22 @@ import {
   Poppins_500Medium,
   Poppins_300Light,
 } from "@expo-google-fonts/poppins";
-export function SignIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  function handleSignIn() {
-    if (email === "" || password === "") {
-      alert("Preencha os campos obrigatórios");
-      return;
-    }
-    const data = { email, password };
+const schema = yup.object({
+  email: yup.string().email("Email Inválido").required("informe seu email"),
+  password: yup
+    .string()
+    .min(8, "A senha deve ter pelo menos 8 digítos")
+    .required("digite sua senha"),
+});
+
+export function SignIn() {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
+  function handleSignIn(data) {
     console.log(data);
   }
 
@@ -58,22 +67,43 @@ export function SignIn() {
       </Animatable.View>
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
         <Text style={styles.title}>Email</Text>
-        <TextInput
-          onChangeText={setEmail}
-          value={email}
-          placeholder="Digite o email..."
-          style={styles.input}
+
+        <Controller
+          control={control}
+          name="Email"
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+              onChangeText={onChange}
+              onBlur={onBlur}
+              value={value}
+              placeholder="Digite o email..."
+              style={styles.input}
+            />
+          )}
         />
+        {errors.email && <Text>{errors.email?.message}</Text>}
 
         <Text style={styles.title}>Senha</Text>
-        <TextInput
-          onChangeText={setPassword}
-          value={password}
-          placeholder="Digite sua senha..."
-          style={styles.input}
-          secureTextEntry={true}
+        <Controller
+          control={control}
+          name="password"
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+              onChangeText={onChange}
+              onBlur={onBlur}
+              value={value}
+              placeholder="Digite sua senha..."
+              style={styles.input}
+              secureTextEntry={true}
+            />
+          )}
         />
-        <TouchableOpacity onPress={handleSignIn} style={styles.button}>
+        {errors.password && <Text>{errors.password?.message}</Text>}
+
+        <TouchableOpacity
+          onPress={handleSubmit(handleSignIn)}
+          style={styles.button}
+        >
           <Text style={styles.buttonText}>Acessar</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttonRegister}>
