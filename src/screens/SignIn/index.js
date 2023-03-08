@@ -22,7 +22,7 @@ import {
 } from "@expo-google-fonts/poppins";
 
 const schema = yup.object({
-  email: yup.string().email("Email Inválido").required("informe seu email"),
+  email: yup.string().email("Email inválido").required("Informe seu email"),
   password: yup
     .string()
     .min(8, "A senha deve ter pelo menos 8 digítos")
