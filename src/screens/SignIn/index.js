@@ -70,10 +70,10 @@ export function SignIn() {
 
         <Controller
           control={control}
-          name="Email"
+          name="email"
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-              onChangeText={onChange}
+              onChangeText={(value) => onChange(value.trim())}
               onBlur={onBlur}
               value={value}
               placeholder="Digite o email..."
@@ -81,7 +81,9 @@ export function SignIn() {
             />
           )}
         />
-        {errors.email && <Text>{errors.email?.message}</Text>}
+        {errors.email && (
+          <Text style={styles.labelErrors}>{errors.email?.message}</Text>
+        )}
 
         <Text style={styles.title}>Senha</Text>
         <Controller
@@ -98,7 +100,9 @@ export function SignIn() {
             />
           )}
         />
-        {errors.password && <Text>{errors.password?.message}</Text>}
+        {errors.password && (
+          <Text style={styles.labelErrors}>{errors.password?.message}</Text>
+        )}
 
         <TouchableOpacity
           onPress={handleSubmit(handleSignIn)}
@@ -174,4 +178,5 @@ const styles = StyleSheet.create({
     margin: 12,
     resizeMode: "stretch",
   },
+  labelErrors: { alignSelf: "flex-start", color: "#ff375b", marginBottom: 8 },
 });
