@@ -13,6 +13,7 @@ import { BackButton } from "../../components/BackButton";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigation } from "@react-navigation/native";
 
 import {
   useFonts,
@@ -30,6 +31,7 @@ const schema = yup.object({
 });
 
 export function SignIn() {
+  const navigation = useNavigation();
   const {
     control,
     handleSubmit,
@@ -110,7 +112,10 @@ export function SignIn() {
         >
           <Text style={styles.buttonText}>Acessar</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonRegister}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Register")}
+          style={styles.buttonRegister}
+        >
           <Text style={styles.textRegister}>
             Não possui uma conta? Cadastre-se
           </Text>
