@@ -39,7 +39,6 @@ export function SignIn() {
   } = useForm({ resolver: yupResolver(schema) });
   function handleSignIn(data) {
     console.log(data);
-    navigation.navigate("Register");
   }
 
   SplashScreen.preventAutoHideAsync();
