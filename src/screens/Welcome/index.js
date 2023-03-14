@@ -44,7 +44,7 @@ export function Welcome() {
           onPress={() => navigation.navigate("SignIn")}
           style={styles.button}
         >
-          <Text style={styles.buttonText}> Acessar </Text>
+          <Text style={styles.buttonText}> Configurações </Text>
         </TouchableOpacity>
       </Animatable.View>
     </View>
