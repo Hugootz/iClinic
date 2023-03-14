@@ -39,6 +39,7 @@ export function SignIn() {
   } = useForm({ resolver: yupResolver(schema) });
   function handleSignIn(data) {
     console.log(data);
+    navigation.navigate("Register");
   }
 
   SplashScreen.preventAutoHideAsync();
@@ -112,10 +113,7 @@ export function SignIn() {
         >
           <Text style={styles.buttonText}>Acessar</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Register")}
-          style={styles.buttonRegister}
-        >
+        <TouchableOpacity style={styles.buttonRegister}>
           <Text style={styles.textRegister}>
             Não possui uma conta? Cadastre-se
           </Text>
