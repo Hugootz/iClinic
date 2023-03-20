@@ -1,7 +1,7 @@
 import React from "react";
 import { StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { Routes } from "./src/routes";
+import { Routes } from "./src/routes/Router";
 import * as SplashScreen from "expo-splash-screen";
 import {
   useFonts,
@@ -9,6 +9,7 @@ import {
   Poppins_500Medium,
   Poppins_300Light,
 } from "@expo-google-fonts/poppins";
+import { AuthProvider } from "./src/contexts/Auth";
 export default function App() {
   SplashScreen.preventAutoHideAsync();
   const [fontsLoaded] = useFonts({
@@ -22,8 +23,10 @@ export default function App() {
   SplashScreen.hideAsync();
   return (
     <NavigationContainer>
-      <StatusBar backgroundColor="#014ba0" barStyle="light-content" />
-      <Routes />
+      <AuthProvider>
+        <StatusBar backgroundColor="#014ba0" barStyle="light-content" />
+        <Routes />
+      </AuthProvider>
     </NavigationContainer>
   );
 }
