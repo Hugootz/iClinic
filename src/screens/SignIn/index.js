@@ -21,6 +21,7 @@ import {
   Poppins_500Medium,
   Poppins_300Light,
 } from "@expo-google-fonts/poppins";
+import { useAuth } from "../../contexts/Auth";
 
 const schema = yup.object({
   email: yup.string().email("Email inválido").required("Informe seu email"),
@@ -31,14 +32,17 @@ const schema = yup.object({
 });
 
 export function SignIn() {
+  const { signIn } = useAuth();
   const navigation = useNavigation();
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
+
   function handleSignIn(data) {
     console.log(data);
+    signIn();
   }
 
   SplashScreen.preventAutoHideAsync();
