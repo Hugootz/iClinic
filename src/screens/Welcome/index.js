@@ -39,9 +39,9 @@ export function Welcome() {
         style={styles.containerForm}
       >
         <Text style={styles.title}>Localize-se de onde estiver!</Text>
-        <Text style={styles.text}>Faça o login para começar</Text>
+        <Text style={styles.text}>Configure como achar melhor</Text>
         <TouchableOpacity
-          onPress={() => navigation.navigate("SignIn")}
+          onPress={() => navigation.navigate("Register")}
           style={styles.button}
         >
           <Text style={styles.buttonText}> Configurações </Text>
