@@ -1,7 +1,7 @@
 import React from "react";
 import { StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { Routes } from "./src/routes/Router";
+import { Routes } from "./src/Routes/Router";
 import * as SplashScreen from "expo-splash-screen";
 import {
   useFonts,
@@ -22,11 +22,9 @@ export default function App() {
   }
   SplashScreen.hideAsync();
   return (
-    <NavigationContainer>
-      <AuthProvider>
-        <StatusBar backgroundColor="#014ba0" barStyle="light-content" />
-        <Routes />
-      </AuthProvider>
-    </NavigationContainer>
+    <AuthProvider>
+      <StatusBar backgroundColor="#014ba0" barStyle="light-content" />
+      <Routes />
+    </AuthProvider>
   );
 }
