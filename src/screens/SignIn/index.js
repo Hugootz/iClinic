@@ -10,10 +10,10 @@ import {
 import * as Animatable from "react-native-animatable";
 import { ButtonLogin } from "../../components/ButtonLogin";
 import { BackButton } from "../../components/BackButton";
+
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigation } from "@react-navigation/native";
 
 import {
   useFonts,
@@ -33,7 +33,7 @@ const schema = yup.object({
 
 export function SignIn() {
   const { signIn } = useAuth();
-  const navigation = useNavigation();
+
   const {
     control,
     handleSubmit,
@@ -42,7 +42,7 @@ export function SignIn() {
 
   function handleSignIn(data) {
     console.log(data);
-    signIn();
+    signIn(data.email, data.password);
   }
 
   SplashScreen.preventAutoHideAsync();
