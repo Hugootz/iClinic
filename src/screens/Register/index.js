@@ -14,6 +14,7 @@ import {
   Poppins_500Medium,
   Poppins_300Light,
 } from "@expo-google-fonts/poppins";
+import { BackButton } from "../../components/BackButton";
 
 export function Register() {
   SplashScreen.preventAutoHideAsync();
@@ -33,7 +34,10 @@ export function Register() {
         delay={500}
         style={styles.header}
       >
-        <Text style={styles.registerTitle}>Cadastro</Text>
+        <View style={styles.backStyle}>
+          <BackButton activeOpacity={1.0} />
+        </View>
+        <Text style={styles.registerTitle}>Configurações</Text>
       </Animatable.View>
       <Animatable.View animation={"fadeInUp"} style={styles.registerForm}>
         <Text style={styles.inputTitle}>Email</Text>
@@ -54,7 +58,7 @@ export function Register() {
           secureTextEntry={true}
         />
         <TouchableOpacity style={styles.registerButton}>
-          <Text style={styles.registerButtonText}>Cadastrar</Text>
+          <Text style={styles.registerButtonText}>Configurar</Text>
         </TouchableOpacity>
       </Animatable.View>
     </View>
@@ -69,6 +73,7 @@ const styles = StyleSheet.create({
     marginBottom: "10%",
     paddingStart: "5%",
   },
+  backStyle: { top: -30 },
   registerTitle: {
     color: "#fff",
     fontSize: 28,
