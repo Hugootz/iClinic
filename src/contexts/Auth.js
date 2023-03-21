@@ -5,15 +5,10 @@ export const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
   const [authData, setAuthData] = useState();
 
-  async function signIn(email, password) {
-    try {
-    } catch (error) {}
-
-    const auth = await signIn(email, password);
-    setAuthData(auth);
-    return auth;
+  function signIn(email, password) {
+    setAuthData({ email, password });
   }
-  async function signOut() {
+  function signOut() {
     setAuthData(undefined);
     return;
   }
