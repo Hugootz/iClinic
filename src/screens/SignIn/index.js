@@ -63,10 +63,6 @@ export function SignIn() {
         delay={500}
         style={styles.containerHeader}
       >
-        <View style={styles.backStyle}>
-          <BackButton activeOpacity={1.0} />
-        </View>
-
         <Text style={styles.textStyle}>iClinic</Text>
 
         <Text style={styles.message}>Bem vindo(a)</Text>
