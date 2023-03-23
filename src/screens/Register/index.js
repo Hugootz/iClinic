@@ -15,6 +15,7 @@ import {
   Poppins_300Light,
 } from "@expo-google-fonts/poppins";
 import { BackButton } from "../../components/BackButton";
+import { LogoutButton } from "../../components/LogoutButton";
 
 export function Register() {
   SplashScreen.preventAutoHideAsync();
@@ -37,6 +38,10 @@ export function Register() {
         <View style={styles.backStyle}>
           <BackButton activeOpacity={1.0} />
         </View>
+        <View style={styles.LogoutButton}>
+          <LogoutButton />
+        </View>
+
         <Text style={styles.registerTitle}>Configurações</Text>
       </Animatable.View>
       <Animatable.View animation={"fadeInUp"} style={styles.registerForm}>
@@ -74,6 +79,7 @@ const styles = StyleSheet.create({
     paddingStart: "5%",
   },
   backStyle: { top: -30 },
+  LogoutButton: { alignItems: "flex-end", top: -55, marginRight: 29 },
   registerTitle: {
     color: "#fff",
     fontSize: 28,
