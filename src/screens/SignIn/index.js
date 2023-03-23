@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import * as SplashScreen from "expo-splash-screen";
 import {
   View,
@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { ButtonLogin } from "../../components/ButtonLogin";
-import { BackButton } from "../../components/BackButton";
 
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
