@@ -1,15 +1,32 @@
-import React, { useContext, createContext, useState } from "react";
+import React, { useContext, createContext, useState, useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
   const [authData, setAuthData] = useState();
 
-  function signIn(email, password) {
-    setAuthData({ email, password });
+  useEffect(() => {
+    LoadFromStorage();
+  }, []);
+
+  async function LoadFromStorage() {
+    const auth = await AsyncStorage.getItem("@AuthData");
+    if (auth) {
+      setAuthData(JSON.parse(auth));
+    }
   }
+
+  async function signIn(email, password) {
+    setAuthData({ email, password });
+    try {
+      await AsyncStorage.setItem("@AuthData", JSON.stringify(email, password));
+    } catch (error) {}
+  }
+
   function signOut() {
     setAuthData(undefined);
+    AsyncStorage.removeItem("@AuthData");
     return;
   }
   return (
