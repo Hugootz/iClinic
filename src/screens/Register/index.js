@@ -63,7 +63,7 @@ export function Register() {
           secureTextEntry={true}
         />
         <TouchableOpacity style={styles.registerButton}>
-          <Text style={styles.registerButtonText}>Configurar</Text>
+          <Text style={styles.registerButtonText}>Cadastrar</Text>
         </TouchableOpacity>
       </Animatable.View>
     </View>
