@@ -9,6 +9,7 @@ import {
   Poppins_300Light,
 } from "@expo-google-fonts/poppins";
 import { useNavigation } from "@react-navigation/native";
+import { LogoutButton } from "../../components/LogoutButton";
 
 export function Welcome() {
   const navigation = useNavigation();
@@ -24,6 +25,9 @@ export function Welcome() {
   SplashScreen.hideAsync();
   return (
     <View style={styles.container}>
+      <View style={styles.logoutButton}>
+        <LogoutButton />
+      </View>
       <View style={styles.containerLogo}>
         <Animatable.Image
           animation="flipInY"
@@ -40,11 +44,8 @@ export function Welcome() {
       >
         <Text style={styles.title}>Localize-se de onde estiver!</Text>
         <Text style={styles.text}>Configure como achar melhor</Text>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Register")}
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}> Configurações </Text>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}> Acessar </Text>
         </TouchableOpacity>
       </Animatable.View>
     </View>
@@ -53,6 +54,7 @@ export function Welcome() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#014ba0" },
+  logoutButton: { marginTop: 20, alignItems: "center" },
   containerLogo: {
     flex: 2,
     backgroundColor: "#014ba0",
