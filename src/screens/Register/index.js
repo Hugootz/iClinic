@@ -38,11 +38,8 @@ export function Register() {
         <View style={styles.backStyle}>
           <BackButton activeOpacity={1.0} />
         </View>
-        <View style={styles.LogoutButton}>
-          <LogoutButton />
-        </View>
 
-        <Text style={styles.registerTitle}>Configurações</Text>
+        <Text style={styles.registerTitle}>Cadastro</Text>
       </Animatable.View>
       <Animatable.View animation={"fadeInUp"} style={styles.registerForm}>
         <Text style={styles.inputTitle}>Email</Text>
