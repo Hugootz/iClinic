@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { ButtonLogin } from "../../components/ButtonLogin";
+import { useNavigation } from "@react-navigation/native";
 
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
@@ -32,6 +33,7 @@ const schema = yup.object({
 
 export function SignIn() {
   const { signIn } = useAuth();
+  const navigation = useNavigation();
 
   const {
     control,
@@ -111,7 +113,10 @@ export function SignIn() {
         >
           <Text style={styles.buttonText}>Acessar</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonRegister}>
+        <TouchableOpacity
+          style={styles.buttonRegister}
+          onPress={() => navigation.navigate("Register")}
+        >
           <Text style={styles.textRegister}>
             Não possui uma conta? Cadastre-se
           </Text>
