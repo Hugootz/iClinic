@@ -7,7 +7,7 @@ export function LogoutButton() {
   const { signOut } = useAuth();
   return (
     <TouchableOpacity onPress={signOut}>
-      <Feather name="power" size={24} color="white" />
+      <Feather name="power" size={34} color="white" />
     </TouchableOpacity>
   );
 }
