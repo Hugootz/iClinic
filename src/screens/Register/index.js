@@ -15,7 +15,6 @@ import {
   Poppins_300Light,
 } from "@expo-google-fonts/poppins";
 import { BackButton } from "../../components/BackButton";
-import { LogoutButton } from "../../components/LogoutButton";
 
 export function Register() {
   SplashScreen.preventAutoHideAsync();
