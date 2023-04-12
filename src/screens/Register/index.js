@@ -1,6 +1,7 @@
 import React from "react";
 import * as SplashScreen from "expo-splash-screen";
 import * as Animatable from "react-native-animatable";
+
 import {
   View,
   Text,
@@ -27,6 +28,7 @@ export function Register() {
     return null;
   }
   SplashScreen.hideAsync();
+
   return (
     <View style={styles.container}>
       <Animatable.View
@@ -41,21 +43,20 @@ export function Register() {
         <Text style={styles.registerTitle}>Cadastro</Text>
       </Animatable.View>
       <Animatable.View animation={"fadeInUp"} style={styles.registerForm}>
-        <Text style={styles.inputTitle}>Email</Text>
+        <Text style={styles.inputTitle}>Nome</Text>
+        <TextInput
+          style={styles.registerInput}
+          placeholder="Digite seu nome..."
+        />
+        <Text style={styles.inputTitle}> Email</Text>
         <TextInput
           style={styles.registerInput}
           placeholder="Digite seu email..."
         />
-        <Text style={styles.inputTitle}> Senha</Text>
+        <Text style={styles.inputTitle}>Senha</Text>
         <TextInput
           style={styles.registerInput}
           placeholder="Digite sua senha..."
-          secureTextEntry={true}
-        />
-        <Text style={styles.inputTitle}> Confirme sua senha</Text>
-        <TextInput
-          style={styles.registerInput}
-          placeholder="Confirme sua senha..."
           secureTextEntry={true}
         />
         <TouchableOpacity style={styles.registerButton}>
