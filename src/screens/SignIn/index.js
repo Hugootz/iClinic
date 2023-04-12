@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import {
   View,
@@ -34,7 +34,6 @@ const schema = yup.object({
 export function SignIn() {
   const { signIn } = useAuth();
   const navigation = useNavigation();
-
   const {
     control,
     handleSubmit,
@@ -114,8 +113,8 @@ export function SignIn() {
           <Text style={styles.buttonText}>Acessar</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.buttonRegister}
           onPress={() => navigation.navigate("Register")}
+          style={styles.buttonRegister}
         >
           <Text style={styles.textRegister}>
             Não possui uma conta? Cadastre-se
