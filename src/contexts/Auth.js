@@ -14,14 +14,13 @@ export const AuthProvider = ({ children }) => {
     const auth = await AsyncStorage.getItem("@AuthData");
     if (auth) {
       setAuthData(JSON.parse(auth));
+      console.log(auth);
     }
   }
 
   async function signIn(email, password) {
-    setAuthData({ email, password });
-    try {
-      await AsyncStorage.setItem("@AuthData", JSON.stringify(email, password));
-    } catch (error) {}
+    await AsyncStorage.setItem("@AuthData", JSON.stringify(email, password));
+    setAuthData(email, password);
   }
 
   function signOut() {
